@@ -50,4 +50,79 @@
 // 20.  Can you improve the performance?
 // 21.   How have other people solved this problem?
 
-function flatten(arr) {}
+function flatten(arr) {
+  const newArr =[];
+ 
+  // base case
+  if (arr.length === 0) return newArr;
+
+  for(i in arr[0]){
+    newArr.push(arr[i]);
+  }
+  // recursive 
+  return newArr.concat(flatten(arr.slice(1,arr.length)));
+}
+/*
+
+stack -> [] Recursion
+
+Loop condition:
+steps needs to be done repeatedly.
+
+Base Condition :
+Where should you end a substep, 
+so that you can pop an element form stack.
+
+
+[[1, 2, 3], [2, 4], [4, 5, 6, 7]]
+[1, 2, 3, 2, 4, 4, 5, 6, 7,]
+
+temp_arr = []
+i = 0
+n = len(arr) 
+while i< n:
+    sub = arr[i]
+    for each in sub:
+        temp_arr.append(each)
+    increment i
+
+2 loops 1 temp-array
+arr = [[1,2,3],[2, 4]] - arr 2
+arr[0] = 3
+arr[1] = 2
+
+[1,2,3] [2,4]
+[1,2,3, 2, 4, ...]
+const temp = []
+flatten(arr, 0, temp)
+
+def flatter(arr, index, temp):
+    length = len(arr)
+    
+    if index==length:
+       return temp
+
+    for each in arr[index]:
+        temp.append(each)
+    
+    flatten(arr, index+1, temp)
+
+
+flatten ([[1,2,3], [2,4]], 0, [])
+- temp = [1,2,3]
+  - flatten([[1,2,3],[2,4]], 1, [1,2,3])
+   - temp = [1,2,3,2,4]
+    - flatten([...], 2,[1,2,3,2,4])
+      -- return temp
+
+
+
+
+
+*/
+[1,2,3]+[2,4] = [1,2,3,2,4]
+
+
+
+
+}
